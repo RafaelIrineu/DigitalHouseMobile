@@ -1,13 +1,11 @@
-class ContaPoupança(
+class ContaPoupanca(
     conta: Int, saldo: Double,
-    private val limite: Double) : ContaBancaria(conta, saldo) {
-
-    val credito: Double = 0.0
+    private val limite: Double) : ContaBancaria(conta, saldo)    {
 
     override fun sacar(valor: Double): Boolean {
-        if (valor > (saldo + limite)) {
+        return if (valor > (saldo + limite)) {
             println("Saldo insuficiente.")
-            return false
+            false
         } else {
             saldo -= valor
             return true

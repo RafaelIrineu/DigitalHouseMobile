@@ -3,7 +3,7 @@ class Banco : Imprimível {
 
     fun adicionarConta(conta: ContaBancaria) {
         contas.add(conta)
-        println("Conta adicionada")
+        println("Conta adicionada!")
     }
 
     fun removerConta(conta: ContaBancaria) {
@@ -12,11 +12,12 @@ class Banco : Imprimível {
     }
 
     fun procurarConta(numero: Int): ContaBancaria? {
-        if (numero in 0 until contas.size) {
-            return contas[numero]
-        } else {
-            return null
+        for (conta in contas) {
+            if (conta.numeroDaConta == numero){
+            return conta
         }
+    }
+        return null //pq??
     }
 
     override fun mostrarDados() {

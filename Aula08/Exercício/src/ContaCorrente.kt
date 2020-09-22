@@ -4,19 +4,19 @@ class ContaCorrente(
 
     override fun sacar(valor: Double): Boolean {
 
-        if (valor > saldo) {
+        return if (valor > saldo) {
             println("Saldo insuficiente")
-            return false
+            false
         } else {
-            saldo -= valor - taxaDeOperacao
+            saldo -= valor
             return true
         }
     }
 
     override fun depositar(valor: Double): Boolean {
-        if ((valor + saldo) >= (taxaDeOperacao + saldo)) {
+        return if ((valor + saldo) >= taxaDeOperacao) {
             saldo += valor - taxaDeOperacao
-            return true
+            true
         } else {
             println("Quantia insuficiente.")
             return false

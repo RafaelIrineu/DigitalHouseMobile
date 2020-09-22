@@ -3,10 +3,13 @@ abstract class ContaBancaria(protected val conta: Int, protected var saldo: Doub
     abstract fun sacar(valor: Double): Boolean
     abstract fun depositar(valor: Double): Boolean
 
+    val numeroDaConta get() = conta
+
     override fun mostrarDados() {
         println("-----------------")
         println("Conta: $conta")
         println("Saldo: $saldo")
+
 
     }
 
@@ -15,6 +18,8 @@ abstract class ContaBancaria(protected val conta: Int, protected var saldo: Doub
         if (!sacar(valor) || !destino.depositar(valor)) {
             saldo = saldoContaOrigem
             println("Operação cancelada")
+        } else {
+            println("Operação realizada")
         }
     }
 }
